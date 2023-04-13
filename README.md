@@ -5,6 +5,9 @@
 
 > MiniPrompt is a minimal input syntax to generate comprehensive outputs from GPT-4. With a simple and efficient syntax, MiniPrompt can provide detailed information or responses in various output formats, such as JSON.
 
+**Compatible with 🦜️🔗 LangChain**
+
+
 ## Features
 
 * Minimal input for complex tasks
