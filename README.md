@@ -3,7 +3,7 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/1148334/231872890-1aecdb4c-c62c-4dc7-a881-fa3031c57561.png" alt="" width="200"/></p>
 
 
-> MiniPrompt is a minimal input syntax to generate comprehensive outputs from LLMs (e.g. GPT-4). With a simple and efficient syntax, MiniPrompt can provide detailed information or responses in various output formats, such as JSON, JavaSrcipt or other languages.
+> 💡 MiniPrompt is a minimal input syntax to generate comprehensive outputs from LLMs (e.g. GPT-4). With a simple and efficient syntax, MiniPrompt can provide detailed information or responses in various output formats, such as JSON, JavaSrcipt or other languages.
 
 **Compatible with 🦜️🔗 LangChain**
 
@@ -12,7 +12,7 @@
 - [Features](#features)
 - [Getting Started](#getting-started)
   * [Example Output](#example-output)
-  * [JavaScript example](#javascript-example)
+- [JavaScript example](#javascript-example)
 - [Parsing the output](#parsing-the-output)
 - [System message](#system-message)
   * [Overview](#overview)
@@ -91,22 +91,28 @@ This prompt is designed to generate a JSON output of user stories, each with its
   * `complexity`: Include the complexity of the user story in the output.
   * `stories`: Include the user stories in the output. Each user story should have the following information:
     * `complexity`: The complexity rating of the user story.
-    * `story"As a User, I want …, so that …"`: The user story itself, written in the format "As a User, I want [goal], so that [reason]".
-    * `criteria`[When, Then]`: The acceptance criteria for the user story, written in the format "When [condition], Then [expected outcome]".
+    * `story"As a User, I want …, so that …"`: The user story itself, written in the format "As a User, I want `[goal]`, so that `[reason]`".
+    * `criteria[When, Then]`: The acceptance criteria for the user story, written in the format "When `[condition]`, Then `[expected outcome]`".
 
 * `OUTPUT`: This defines the desired format of the output. In this case, the output should be in JSON format.
 
 Based on this prompt, the AI will generate a JSON object containing up to 3 user stories, each with up to 3 acceptance criteria, and their complexity ratings. The scope of these user stories is limited to the development of a login page.
 
-### JavaScript example
+## JavaScript example
 
 **input**
 
+The input prompt consists of a TASK, TEMPLATE, and OUTPUT format:
+
 ```
 TASK: add a red box
-TEMPLATE: const c=document;getElementById('c');const ctx=c.getContext('2d');
+TEMPLATE: const c=document;getElementById('c')
 OUTPUT: JavaScript
 ```
+
+* `TASK`: The task is to add a red box using JavaScript.
+* `TEMPLATE`: The provided template includes a part of the JavaScript code necessary for drawing the red box:
+* `OUTPUT`: The desired output format is JavaScript.
 
 **Output**
 
@@ -119,9 +125,9 @@ ctx.fillRect(20, 20, 100, 100);
 
 ## Parsing the output
 
-In some cases, the AI-generated output may include code blocks embedded within the Markdown text. To ensure proper handling and interpretation of the output, it is recommended to use a parser specifically designed to extract code blocks from the Markdown content.
+In certain situations, the AI-generated output may contain code blocks embedded within the Markdown text. To properly handle and interpret the output, it is advisable to use a parser specifically designed to extract code blocks from the Markdown content.
 
-We recommend using the following parser to extract code blocks from the AI-generated output:
+Consider using a parser like the one shown below to extract code blocks from the AI-generated output:
 
 ```js
 function extractCode(string: string) {
@@ -144,14 +150,18 @@ const codeBlockPattern = /(`{3,})(\w*)\n([\s\S]*?)\1/g;
 }
 ```
 
+This JavaScript function, extractCode, utilizes a regular expression to match and extract the content of code blocks from the input string. If a code block is found, the function returns the content of the code block. If no code block is detected, the original input string is returned.
+
 ## System message
 
 ### Overview
 
-The system message is a set of instructions for the AI language model, ensuring it generates responses that align with the specified guidelines and requested output format.
+> 💡 While not mandatory, using a system message can improve the consistency and accuracy of the AI-generated responses by ensuring they adhere to the specified guidelines.
+
+The system message serves as a set of instructions for the AI language model, guiding it to generate responses that align with the provided guidelines and the desired output format.
 
 ```
-You are an Entity that strictly answers with the OUTPUT format. You strictly follow the TASK, TEMPLATE and OUTPUT guidelines.
+You are an Entity that strictly answers with the OUTPUT format. You strictly follows the TASK, TEMPLATE and OUTPUT guidelines.
 ```
 
 ### Components
