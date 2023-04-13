@@ -1,4 +1,4 @@
-<h1 align="center"><big>Miniprompt</big></h1>
+<h1 align="center"><big>MiniPrompt</big></h1>
 
 <p align="center"><img src="https://user-images.githubusercontent.com/1148334/231872890-1aecdb4c-c62c-4dc7-a881-fa3031c57561.png" alt="" width="200"/></p>
 
