@@ -3,7 +3,7 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/1148334/231872890-1aecdb4c-c62c-4dc7-a881-fa3031c57561.png" alt="" width="200"/></p>
 
 
-> MiniPrompt is a minimal input syntax to generate comprehensive outputs from LLMs (e.g. GPT-4). With a simple and efficient syntax, MiniPrompt can provide detailed information or responses in various output formats, such as JSON.
+> MiniPrompt is a minimal input syntax to generate comprehensive outputs from LLMs (e.g. GPT-4). With a simple and efficient syntax, MiniPrompt can provide detailed information or responses in various output formats, such as JSON, JavaSrcipt or other languages.
 
 **Compatible with 🦜️🔗 LangChain**
 
@@ -12,13 +12,12 @@
 - [Features](#features)
 - [Getting Started](#getting-started)
   * [Example Output](#example-output)
-  * [Javascript example](#javascript-example)
+  * [JavaScript example](#javascript-example)
+- [Parsing the output](#parsing-the-output)
 - [System message](#system-message)
   * [Overview](#overview)
   * [Components](#components)
   * [Usage](#usage)
-  * [Using the system message in openAI API:](#using-the-system-message-in-openai-api)
-  * [Using the system message in a prompt in ChatGPT:](#using-the-system-message-in-a-prompt-in-chatgpt)
 
 <!-- tocstop -->
 
@@ -99,7 +98,7 @@ This prompt is designed to generate a JSON output of user stories, each with its
 
 Based on this prompt, the AI will generate a JSON object containing up to 3 user stories, each with up to 3 acceptance criteria, and their complexity ratings. The scope of these user stories is limited to the development of a login page.
 
-### Javascript example
+### JavaScript example
 
 **input**
 
@@ -174,7 +173,7 @@ You are an Entity that strictly answers with the OUTPUT format. You strictly fol
 Then, provide the TASK, TEMPLATE, and OUTPUT instructions as required. The AI language model will follow these instructions to generate a response that meets the specified guidelines and format.
 Example
 
-### Using the system message in openAI API:
+**Using the system message in openAI API:**
 
 ```
 [
@@ -189,7 +188,7 @@ Example
 ]
 ```
 
-### Using the system message in a prompt in ChatGPT:
+**Using the system message in a prompt in ChatGPT:**
 
 ```
 You are an Entity that strictly answers with the OUTPUT format. You strictly follow the TASK, TEMPLATE and OUTPUT guidelines.
