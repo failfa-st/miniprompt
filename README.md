@@ -118,6 +118,33 @@ ctx.fillStyle = 'red';
 ctx.fillRect(20, 20, 100, 100);
 ```
 
+## Parsing the output
+
+In some cases, the AI-generated output may include code blocks embedded within the Markdown text. To ensure proper handling and interpretation of the output, it is recommended to use a parser specifically designed to extract code blocks from the Markdown content.
+
+We recommend using the following parser to extract code blocks from the AI-generated output:
+
+```js
+function extractCode(string: string) {
+// The regular expression pattern to match the code block
+const codeBlockPattern = /(`{3,})(\w*)\n([\s\S]*?)\1/g;
+
+	// Find the matches using the regular expression
+	const matches = codeBlockPattern.exec(string);
+
+	if (matches && matches.length >= 4) {
+		const language = matches[2] || undefined;
+		const content = matches[3];
+
+		// Return content of the code block
+		return content;
+	}
+
+	// No code block found, return original string
+	return string;
+}
+```
+
 ## System message
 
 ### Overview
