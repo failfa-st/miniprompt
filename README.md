@@ -106,7 +106,7 @@ The input prompt consists of a TASK, TEMPLATE, and OUTPUT format:
 
 ```
 TASK: add a red box
-TEMPLATE: const c=document;getElementById('c')
+TEMPLATE: const c=document.getElementById('c')
 OUTPUT: JavaScript
 ```
 
@@ -138,11 +138,8 @@ const codeBlockPattern = /(`{3,})(\w*)\n([\s\S]*?)\1/g;
 	const matches = codeBlockPattern.exec(string);
 
 	if (matches && matches.length >= 4) {
-		const language = matches[2] || undefined;
-		const content = matches[3];
-
 		// Return content of the code block
-		return content;
+		return matches[3];
 	}
 
 	// No code block found, return original string
